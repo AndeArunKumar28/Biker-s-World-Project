@@ -38,7 +38,7 @@ SECRET_KEY = 'django-insecure-*4)pa!&!dl*2-l3wq9+o+ueud9#7g(=zz^te*o_9-pwn68b5d%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['bikers-world-project.onrender.com', 'localhost', '127.0.0.1'']
 
 
 # Application definition
