@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+<meta name="viewport" content="device-width", intial-scale="1.0",shrink-to-fit="no">
+{% block content %}
+<div style="position: relative;">
+    <div style="background-image: url('/media/images/login1.jpg'); position: absolute; background-size: cover;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        opacity: 1.0;">
+    </div>
+    <div class="container mb-1">
+        <div calss="row justify-content-center mt-5">
+            <div class="col-sm-10 offset-md-1 p-5"><br><br><br><br>
+                <h2 style="color: white; text-align: center"><b>Login Your Account</b></h2><br>
+
+                {% if form.non_field_errors %}
+                <small class="text-danger">
+                    {{ form.non_field_errors.as_ul }}
+                </small>
+                {% endif %}
+
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="form-group" style="color: white">
+                        <label for="{{ form.username.id_for_label}}">Username:</label>
+                        <input type="text" name="{{form.username.name}}" class="form-control" value="{{form.username.value}}" />
+                        <span class="text-danger">{{form.username.errors}}</span>
+                    </div>
+                    <br>
+                    <div class="form-group" style="color: white">
+                        <label for="{{ form.password.id_for_label}}">Password:</label>
+                        <input type="password" name="{{form.password.name}}" class="form-control" value="{{form.password.value}}" />
+                        <span class="text-danger">{{form.password.errors}}</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark">Login</button>
+                    <a href="{% url 'register' %}" class="btn btn-default">New User Please Register</a>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
